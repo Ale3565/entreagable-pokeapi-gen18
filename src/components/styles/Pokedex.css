@@ -1,0 +1,13 @@
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.header__img-pokedex{
+    width: 100%;
+}
+span{
+    color: red;
+    font-weight: 700;
+}
