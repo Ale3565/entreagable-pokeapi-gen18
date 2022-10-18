@@ -6,7 +6,14 @@
 }
 .header__img-pokedex{
     width: 100%;
+    height: 60px;
 }
+@media (min-width: 1200px) {
+    .header__img-pokedex{
+        width: 100%;
+        height: 130px;
+    }
+  }
 span{
     color: red;
     font-weight: 700;

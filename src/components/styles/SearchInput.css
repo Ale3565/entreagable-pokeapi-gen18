@@ -1,4 +1,4 @@
-button{
+button{    
 width: 120px;
 height: 40px;
 background-color: red;
@@ -6,8 +6,8 @@ color: white;
 border: none;
 }
 input{
-    
-    width: 350px;
+
+    width: 200px;
     height: 40px;
     margin-left: 50px;
     margin-bottom: 20px;

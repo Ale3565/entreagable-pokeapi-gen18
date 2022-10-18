@@ -1,7 +1,17 @@
 .select__container{
     position: relative;
-    left: 530px;
-    bottom: 62px;
+    bottom: 10px;
     border-radius: 6px;
     padding: 7px;
+    
+}
+@media (min-width: 1200px){
+    .select__container{
+        position: relative;
+        left: 380px;
+        bottom: 60px;
+        border-radius: 6px;
+        padding: 7px;
+        
+    }
 }
