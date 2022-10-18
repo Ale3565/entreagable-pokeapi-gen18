@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import "../components/styles/SelectType.css"
 
 const SelectType = ({ setTypeInfo, typeInfo, setPokeSearch }) => {
   const [listTypes, setListTypes] = useState()
@@ -18,7 +19,7 @@ const SelectType = ({ setTypeInfo, typeInfo, setPokeSearch }) => {
   }
 
   return (
-    <select value={typeInfo} onChange={handleChange} >
+    <select className='select__container' value={typeInfo} onChange={handleChange} >
       <option value="All">All pokemons</option>
       {
         listTypes?.map(type => (

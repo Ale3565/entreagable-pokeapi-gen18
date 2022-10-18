@@ -6,6 +6,8 @@ import SearchInput from './SearchInput'
 import SelectType from './SelectType'
 import "./styles/Pokedex.css"
 import LogoHeader from "../assets/logo-header.png"
+import Pagination from './Pagination'
+
 
 const Pokedex = () => {
 
@@ -38,12 +40,18 @@ const Pokedex = () => {
       }
     } else {
       //Aqui se hace la logica cuando el usuario quiere todos los pokemons
-      const URL = `https://pokeapi.co/api/v2/pokemon/`
+      const URL = `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
       axios.get(URL)
         .then(res => setPokemonName(res.data))
         .catch(err => console.log(err.message))
     }
   }, [pokeSearch, typeInfo])
+
+  //pagination logic
+  const [page, setPage] = useState(1)
+  const [pokePerPage, setPokePerPage] = useState(12)
+  const initialPoke = (page - 1) * pokePerPage;
+  const finalPoke = page * pokePerPage
 
   return (
     <div>
@@ -57,11 +65,10 @@ const Pokedex = () => {
         setTypeInfo={setTypeInfo}
         typeInfo={typeInfo}
         setPokeSearch={setPokeSearch} />
-        
-      <h2></h2>
+
       <div className='card-container'>
         {
-          pokemonName?.results.map(pokemon => (
+          pokemonName?.results.slice(initialPoke, finalPoke).map(pokemon => (
             <PokemonCard
               pokemon={pokemon.url}
               key={pokemon.url}
@@ -69,6 +76,11 @@ const Pokedex = () => {
           ))
         }
       </div>
+      <Pagination
+        page={page}
+        pagesLength={pokemonName && Math.ceil(pokemonName.length / pokePerPage)}
+        setPage={setPage}
+      />
     </div>
   )
 }
