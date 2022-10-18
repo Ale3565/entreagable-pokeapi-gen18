@@ -126,9 +126,9 @@ img {
   @media (min-width: 1200px) {
     .header__img-footer {
         position: relative;
-        top: 490px;
+        top: 460px;
         width: 100vw;
-        height: 100px;
+        height: 130px;
     
     }
     .header__input {
